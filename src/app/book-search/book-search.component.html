@@ -1,0 +1,15 @@
+
+<input type="text" placeholder="Search Books..." [formControl] = "searchTerm" />
+
+<div style="color: red;"   *ngIf="searchTerm.invalid && (searchTerm.dirty || searchTerm.touched)">Please enter the Search input.</div>
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div class="book-grid">
+  <div *ngFor="let book of books" class="book-card">
+    <img [src]="book.thumbnail" alt="Book cover" />
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.authors.join(', ') }}</p>
+  </div>
+</div>
